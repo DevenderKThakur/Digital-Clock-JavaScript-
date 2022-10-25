@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<style>
+  #clock{
+     font-size: 175px;
+     width: 900px;
+     margin: 200px;
+     text-align: center;
+     border: 2px solid black;
+    border-radius: 20px;
+   }
+</style>
+<body>
+    <div class="clock">18:26:00</div>
+</body>
+<script>
+    setInterval(time,1000);
+    function time(){
+                                      // the time shown in your system is captured by built in function called Date() 
+        let showTime = new Date();
+        let hour = showTime.getHours();  
+        let min = showTime.getMinutes();
+        let sec = showTime.getSeconds();
+        let ampm;
+        if(hours>12){
+            ampm = 'PM'
+        }else{
+            ampm = 'AM'
+        }
+
+        let currentTime = hour + ':' + min+ ':'+sec+':'+ampm ;
+        document.getElementById('clock').innerHTML = currentTime;
+    }
+    time();
+</script>
+</html>
